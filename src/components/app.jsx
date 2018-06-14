@@ -10,18 +10,29 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: 'Inigo Montoya'
+            name: 'Inigo Montoya'
         }
+        this.handleNameChange = this.handleNameChange.bind(this);
+
+        
     }
+
+    handleNameChange(event) {
+        // do something useful
+        this.setState({name: event.target.value})
+        console.log('Typey Typey');
+
+      }
+
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <h1>My name is {this.state.text}, you killed my {this.props.relative.name}, prepare to die.</h1>
-            </div>
+                <input type="text" placeholder={this.state.name} value={this.state.name} onChange={this.handleNameChange}></input>
+            </React.Fragment>
         )
     }
 }
 
 export default App
-
 
