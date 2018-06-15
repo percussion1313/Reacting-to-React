@@ -10,8 +10,10 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: 'Inigo Montoya',
+            name: '',
+            value: 'What do now?',
             hasLoaded: false
+
         }
         this.handleNameChange = this.handleNameChange.bind(this);
         this.hasLoaded = this.hasLoaded.bind(this);
@@ -23,8 +25,9 @@ class App extends Component {
     }
 
     componentDidMount() {
-
-    }
+        console.log('Component did mount.');
+        this.setState({hasLoaded: true})
+      }
     
     handleNameChange(event) {
         // do something useful
@@ -37,7 +40,7 @@ class App extends Component {
             return (
                 <React.Fragment>
                     <h1>My name is {this.state.name}, you killed my {this.props.relative.name}, prepare to die.</h1>
-                    <input type="text" placeholder={this.state.name} value={this.state.name} onChange={this.handleNameChange}></input>
+                    <input type="text" placeholder={this.state.value} value={this.state.name} onChange={this.handleNameChange}></input>
                     <button onClick={this.hasLoaded}>Click Me</button>            
                     </React.Fragment>
             )
