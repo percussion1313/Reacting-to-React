@@ -15,21 +15,19 @@ class App extends Component {
             hasLoaded: false
 
         }
-        this.handleNameChange = this.handleNameChange.bind(this);
-        this.hasLoaded = this.hasLoaded.bind(this);
         
     }
 
-    hasLoaded() {
+    hasLoaded = () => {
         this.setState({hasLoaded: !this.state.hasLoaded});
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         console.log('Component did mount.');
         this.setState({hasLoaded: true})
       }
     
-    handleNameChange(event) {
+    handleNameChange = (event) => {
         // do something useful
         this.setState({name: event.target.value})
         console.log('Typey Typey');
